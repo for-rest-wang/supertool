@@ -1,25 +1,23 @@
 <!--pages/workloadlist/workloadlist.wxml-->
-<view class="page">
-  <view class="page__hd">
-    <view class="weui-cells__title">报工月份：{{workload_month}}</view>
-    <view wx:for="{{workloadlist}}" wx:key="item" class="{{workloadlist.length!=0?'db':'dn'}}">
-      <view class="weui-panel__ft" id="{{item.id}}" catchtap="detail">
-				<a class="weui-cell weui-cell_active weui-cell_access weui-cell_link">
-					<view class="weui-cell__bd">{{item.project_name}}{{item.work_type}}工作{{item.days}}天</view>
-					<text class="weui-cell__ft"></text>
-				</a>
-			</view>
+<view class="weui-cells__title">报工月份：{{workload_month}}</view>
+<view class="weui-cells weui-cells_after-title">
+  <view wx:for="{{workloadlist}}" wx:key="item" class="{{workloadlist.length!=0?'db':'dn'}}">
+    <view class="weui-panel__ft" id="{{item.id}}" catchtap="detail">
+      <a class="weui-cell weui-cell_active weui-cell_access weui-cell_link">
+        <view class="weui-cell__bd">{{item.project_name}}{{item.work_type}}工作{{item.days}}天</view>
+        <text class="weui-cell__ft"></text>
+      </a>
     </view>
-    <view class="{{workloadlist.length == 0 && !dataLoaded ?'db':'dn'}}">
-      <view class="icon-box">
-        <icon type="info" size="40"></icon>
-        <view class="icon-box__ctn">
-            <view class="icon-box__title">列表加载中</view>
-        </view>
-      </view>
-    </view>
-    <view class="weui-btn-area">
-      <button class="weui-btn my-style" type="primary" bindtap="add">新增</button>
+  </view>   
+</view>
+<view class="{{workloadlist.length == 0 && !dataLoaded ?'db':'dn'}}">
+  <view class="icon-box">
+    <icon type="info" size="40"></icon>
+    <view class="icon-box__ctn">
+        <view class="icon-box__title">列表加载中</view>
     </view>
   </view>
+</view>
+<view class="weui-btn-area">
+    <button class="weui-btn my-style" type="primary" bindtap="add">新增</button>
 </view>

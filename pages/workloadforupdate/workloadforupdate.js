@@ -31,51 +31,50 @@ Page({
         id: options.id
       },
       complete: res => {
-        for(var i=0;i<this.data.work_type_list.length;i++){
-          if(this.data.work_type_list[i]==res['result']['work_type']){
+        for(var i=0;i<this.data.init_work_type_list.length;i++){
+          if(this.data.init_work_type_list[i]==res['result']['work_type']){
             this.data.type_index=i
             break
           }          
         }
-
         this.data.days_index = parseInt(res['result']['days'])-1
         this.data.id=res['result']['id'],
         this.data.project_id=res['result']['project_id'],  
         this.data.project_name=res['result']['project_name'],
-        this.data.work_type=res['result']['work_type'],
         this.data.delivery_center=res['result']['delivery_center'],
+        this.data.work_type=res['result']['work_type']
         this.data.days=res['result']['days'],
         this.data.is_pre=res['result']['is_pre'],
         this.setData(
-          {}
         )
-      }
-    }),
-    wx.cloud.callFunction({
-      name: 'getprojectbydept',
-      data:{
-        dept_id: wx.getStorageSync("deptid"),
-        dept_type: wx.getStorageSync("depttype"),
-      },
-      complete: res => {
-        var list_obj = res['result']
-        var temp_index = 0
-        for(var i=0;i<list_obj.length;i++){
-          if(list_obj[i].id==this.data.project_id){
-            temp_index=i 
-            break
-          }          
-        }
-        this.setData({
-          project_list:res['result'],
-          index:temp_index,
-          work_type_list: this.data.init_work_type_list,
-          days_list: this.data.init_days_list,
-          type_index:this.data.type_index,
-          days_index:this.data.days_index
+        wx.cloud.callFunction({
+          name: 'getprojectbydept',
+          data:{
+            dept_id: wx.getStorageSync("deptid"),
+            dept_type: wx.getStorageSync("depttype"),
+          },
+          complete: res => {
+            var list_obj = res['result']
+            for(var i=0;i<list_obj.length;i++){
+              if(list_obj[i].id==this.data.project_id){
+                this.data.index=i 
+                break
+              }          
+            }
+            this.setData({
+              project_list:res['result'],
+              index: this.data.index,
+              work_type_list: this.data.init_work_type_list,
+              days_list: this.data.init_days_list,
+              type_index:this.data.type_index,
+              days_index:this.data.days_index
+            })
+          }
         })
+        
       }
     })
+
   },
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -114,7 +113,6 @@ Page({
         is_pre: this.data.is_pre,
       },
       complete: res => {
-        console.log(res)
         wx.reLaunch({
           url: "/pages/workloadlist/workloadlist"
         });
