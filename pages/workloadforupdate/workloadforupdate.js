@@ -25,53 +25,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var page = getCurrentPages();
+    var prevpage = page[page.length-2]
+    this.data.days_index = prevpage.data.days-1
+    this.data.id = prevpage.data.id
+    this.data.project_id = prevpage.data.project_id
+    this.data.project_name = prevpage.data.project_name
+    this.data.delivery_center = prevpage.data.delivery_center
+    this.data.work_type =prevpage.data.work_type
+    this.data.days = prevpage.data.days
+    this.data.is_pre = prevpage.data.is_pre
+    for(var i=0;i<this.data.init_work_type_list.length;i++){
+      if(this.data.init_work_type_list[i]==prevpage.data.work_type){
+        this.data.type_index=i
+        break
+      }          
+    }
     wx.cloud.callFunction({
-      name: 'getworkloaddetail',
+      name: 'getprojectbydept',
       data:{
-        id: options.id
+        dept_id: wx.getStorageSync("deptid"),
+        dept_type: wx.getStorageSync("depttype"),
       },
       complete: res => {
-        for(var i=0;i<this.data.init_work_type_list.length;i++){
-          if(this.data.init_work_type_list[i]==res['result']['work_type']){
-            this.data.type_index=i
+        var list_obj = res['result']
+        for(var i=0;i<list_obj.length;i++){
+          if(list_obj[i].id==this.data.project_id){
+            this.data.index=i 
             break
           }          
         }
-        this.data.days_index = parseInt(res['result']['days'])-1
-        this.data.id=res['result']['id'],
-        this.data.project_id=res['result']['project_id'],  
-        this.data.project_name=res['result']['project_name'],
-        this.data.delivery_center=res['result']['delivery_center'],
-        this.data.work_type=res['result']['work_type']
-        this.data.days=res['result']['days'],
-        this.data.is_pre=res['result']['is_pre'],
-        this.setData(
-        )
-        wx.cloud.callFunction({
-          name: 'getprojectbydept',
-          data:{
-            dept_id: wx.getStorageSync("deptid"),
-            dept_type: wx.getStorageSync("depttype"),
-          },
-          complete: res => {
-            var list_obj = res['result']
-            for(var i=0;i<list_obj.length;i++){
-              if(list_obj[i].id==this.data.project_id){
-                this.data.index=i 
-                break
-              }          
-            }
-            this.setData({
-              project_list:res['result'],
-              index: this.data.index,
-              work_type_list: this.data.init_work_type_list,
-              days_list: this.data.init_days_list,
-              type_index:this.data.type_index,
-              days_index:this.data.days_index
-            })
-          }
+        this.setData({
+          project_list:res['result'],
+          index: this.data.index,
+          work_type_list: this.data.init_work_type_list,
+          days_list: this.data.init_days_list,
+          type_index:this.data.type_index,
+          days_index: prevpage.data.days-1,
         })
-        
       }
     })
 

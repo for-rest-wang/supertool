@@ -10,6 +10,7 @@ Page({
     project_name:'',
     work_type:'',
     delivery_center:'',
+    is_pre:'',
     days:'',
   },
 
@@ -27,10 +28,11 @@ Page({
         console.log('callFunction test result: ', res)
         this.setData({
           id:res['result']['id'],
-          project_name:res['result']['project_id'],          
+          project_id:res['result']['project_id'],          
           project_name:res['result']['project_name'],
           work_type:res['result']['work_type'],
           delivery_center:res['result']['delivery_center'],
+          is_pre:res['result']['is_pre'],
           days:res['result']['days'],
         })
       }
