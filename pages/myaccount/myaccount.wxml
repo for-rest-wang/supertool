@@ -1,0 +1,54 @@
+<!--othercust.wxml-->
+ <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">账户</view>
+      </view>
+      <view class="weui-cell__bd font-color pl10">
+        {{userid}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">性名</view>
+      </view>
+      <view class="weui-cell__bd font-color pl10">
+        {{username}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">邮箱</view>
+      </view>
+      <view class="weui-cell__bd font-color pl10">
+        {{mail}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">公司</view>
+      </view>
+      <view class="weui-cell__bd font-color pl10">
+        {{company}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">本部</view>
+      </view>
+      <view class="weui-cell__bd font-color pl10">
+        {{department}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">部门</view>
+      </view>
+      <view class="weui-cell__bd font-color pl10">
+        {{subdepartment}}
+      </view>
+    </view>
+</view> 
+<view class="weui-btn-area">
+    <button class="weui-btn" type="warn" bindtap="loginout">退出当前账号</button>
+</view>

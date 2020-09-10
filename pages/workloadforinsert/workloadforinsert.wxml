@@ -1,0 +1,38 @@
+<!--pages/workloadforinsert/workloadforinsert.wxml-->
+<view class="weui-cells__title">报工记录新增：</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_access">
+    <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">项目</view>
+    </view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range-key="project_name" range="{{project_list}}">
+      <view class="picker">
+        {{project_list[index].project_name}}
+      </view>
+    </picker>
+  </view>
+  <view class="weui-cell weui-cell_access">
+    <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">类型</view>
+    </view>
+    <picker bindchange="bindTypePickerChange" value="{{type_index}}" range="{{work_type_list}}">
+      <view class="picker">
+        {{work_type_list[type_index]}}
+      </view>
+    </picker>
+  </view>
+  <view class="weui-cell weui-cell_access">
+    <view class="weui-cell__hd">
+        <view class="weui-label align-right mw120">天数</view>
+    </view>
+    <picker bindchange="bindDaysPickerChange" value="{{days_index}}" range="{{days_list}}">
+      <view class="picker">
+        {{days_list[days_index]}}
+      </view>
+    </picker>
+  </view>
+</view> 
+<view class="weui-btn-area">
+  <button class="weui-btn" type="primary" bindtap="save">保存</button>
+  <button class="weui-btn" bindtap="back">返回</button>
+</view>

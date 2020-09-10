@@ -1,0 +1,46 @@
+/* pages/workloadlist/workloadlist.wxss */
+.weui-search-bar{
+  margin-top:25rpx;
+}
+.weui-cell__ft_in-access{
+  position:absolute;
+  top:50%;
+  right:20rpx;
+}
+.icon-box{
+   padding:60rpx;
+    display: flex;
+    align-items: center;
+}
+.icon-box__ctn{
+    flex-shrink: 100;
+}
+.icon-box__title{
+	margin-left:10px;
+    font-size: 20px;
+}
+.icon-box__desc{
+    margin-top: 6px;
+    margin-left:4px;
+    font-size: 12px;
+    color: #888888;
+}
+.icon_sp_area {
+    margin-top: 10px;
+    text-align: left;
+}
+.weui-navbar__item.weui-bar__item_on{
+  color:#14b9ef;
+}
+.weui-navbar__slider{
+  background-color:#14b9ef;
+}
+.weui-search-bar__cancel-btn{
+  color:#14b9ef;
+}
+.dn{
+  display: none;
+}
+.db{
+  display: block;
+}

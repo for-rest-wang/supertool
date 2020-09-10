@@ -1,0 +1,27 @@
+.align-right{
+  text-align: right;
+}
+.align-center{
+  text-align: center;
+}
+.mw120{
+  min-width: 120px;
+}
+.font-color{
+  color: #999999;
+}
+.pl10{
+  padding-left: 10px;
+}
+.my-btn{
+  color:#14b9ef;
+}
+.fr{
+  float: right;
+}
+.fl{
+  float: left;
+}
+.ml20{
+  margin-left: 20px;
+}

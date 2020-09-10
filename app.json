@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/myaccount/myaccount",
+    "pages/workloadlist/workloadlist",
+    "pages/workloaddetail/workloaddetail",
+    "pages/workloadforupdate/workloadforupdate",
+    "pages/workloadforinsert/workloadforinsert"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "研发管理辅助工具",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#14b9ef",
+    "list": [
+      {
+        "pagePath": "pages/workloadlist/workloadlist",
+        "text": "我的报工",
+        "iconPath": "/style/img/icon1.png",
+        "selectedIconPath": "/style/img/icon2.png"
+      },
+      {
+        "pagePath": "pages/myaccount/myaccount",
+        "text": "我的账号",
+        "iconPath": "/style/img/icon5.png",
+        "selectedIconPath": "/style/img/icon6.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

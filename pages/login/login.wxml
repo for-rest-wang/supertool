@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view>
+  <view class="logo-box">
+    <image class="logo-image" mode="scaleToFill" src="/style/img/logo.png"></image>
+    <view class="logo-text">报工小助手</view>
+  </view>
+  <form class="login-form" bindsubmit="formSubmit" bindreset="formReset">
+    <view class="weui-cells__title">使用公司账号登录</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">用户名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name='user_name' 
+          placeholder="请输入用户名" cursor-spacing ='220' 
+          value="{{user_name}}"/>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">密码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name='pwd' password 
+          placeholder="请输入密码" cursor-spacing ='176'
+          type="text"
+          value="{{pwd}}"/>
+        </view>
+      </view>
+    </view>
+    <view class="login-btn-container">
+      <button class="weui-btn my-style" type="primary" formType="submit">登录</button>
+    </view>
+  </form>
+  <view>{{tip}}</view>
+</view>
